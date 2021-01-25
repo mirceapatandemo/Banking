@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+    bankingapi: 
+        build: .            
+        image: aspnetcore/bankingapi:multi
+        ports:
+            - "4040:4040"
+        depends_on: 
+            - bankingdb        
+            
+    bankingdb:
+        image: mcr.microsoft.com/mssql/server
+        environment:
+            - "SA_PASSWORD=JX789!cb90001"
+            - "ACCEPT_EULA=Y"
+    
